@@ -63,7 +63,7 @@ class SomaReprov(BaseEstimator, TransformerMixin):
         return data
         
 # Substituindo números faltantes pela média:
-class MedNotas(BaseEstimator, TransformerMixin):
+class FillNotas(BaseEstimator, TransformerMixin):
 
     def __init__(self):
         return
@@ -82,7 +82,7 @@ class MedNotas(BaseEstimator, TransformerMixin):
         return data
     
 # Substituindo números faltantes pela média:
-class Params(BaseEstimator, TransformerMixin):
+class NewFeatures(BaseEstimator, TransformerMixin):
 
     def __init__(self):
         return
@@ -101,6 +101,6 @@ class Params(BaseEstimator, TransformerMixin):
               # Média notas de Humanas (Nota Hu):
         data['NOME'] = data[['NOTA_DE', 'NOTA_EM', 'NOTA_GO']].mean(axis=1)
               # Soma notas de DE e EM:
-        data['NOTA_HU'] = (data['NOTA_DE'] + data['NOTA_EM'])   
+        data['INGLES'] = (data['NOTA_DE'] + data['NOTA_EM'])   
         
         return data
