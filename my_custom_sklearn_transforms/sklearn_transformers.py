@@ -97,7 +97,7 @@ class Params(BaseEstimator, TransformerMixin):
               # Analisando a presença:
         data['REPROVACOES_GO'] = (data['H_AULA_PRES'] + data['TAREFAS_ONLINE'])
               # Média das notas:
-        data['REPROVACOES_EM'] = data[['NOTA_DE', 'NOTA_EM', 'NOTA_GO', 'NOTA_MF']].mean(axis=1))
+        data['REPROVACOES_EM'] = data[['NOTA_DE', 'NOTA_EM', 'NOTA_GO', 'NOTA_MF']].mean(axis=1)
               # Média notas de Humanas (Nota Hu):
         data['NOME'] = data[['NOTA_DE', 'NOTA_EM', 'NOTA_GO']].mean(axis=1)
               # Soma notas de DE e EM:
