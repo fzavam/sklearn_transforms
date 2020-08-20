@@ -80,3 +80,27 @@ class MedNotas(BaseEstimator, TransformerMixin):
         data['NOTA_MF'] = data['NOTA_MF'].fillna(data[['NOTA_DE', 'NOTA_EM', 'NOTA_GO']].mean(axis=1))
         
         return data
+    
+# Substituindo números faltantes pela média:
+class Params(BaseEstimator, TransformerMixin):
+
+    def __init__(self):
+        return
+    
+    def fit(self, X, y=None):
+        return self
+    
+    def transform(self, X):
+        data = X.copy()
+              # Analisando a participação:
+        data['REPROVACOES_DE'] = (data['H_AULA_PRES'] + data['TAREFAS_ONLINE']) - data['FALTAS']
+              # Analisando a presença:
+        data['REPROVACOES_GO'] = (data['H_AULA_PRES'] + data['TAREFAS_ONLINE'])
+              # Média das notas:
+        data['REPROVACOES_EM'] = data[['NOTA_DE', 'NOTA_EM', 'NOTA_GO', 'NOTA_MF']].mean(axis=1))
+              # Média notas de Humanas (Nota Hu):
+        data['NOME'] = data[['NOTA_DE', 'NOTA_EM', 'NOTA_GO']].mean(axis=1)
+              # Soma notas de DE e EM:
+        data['NOTA_HU'] = (data['NOTA_DE'] + data['NOTA_EM'])   
+        
+        return data
